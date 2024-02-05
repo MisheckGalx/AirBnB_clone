@@ -6,7 +6,7 @@ AirBnB_clone - Console
 The first part of this project involves simulating an Airbnb application by creating a control system for the modules used on our web page. We achieve this by implementing a JSON-format database and leveraging object-oriented programming, Python data translation, and command interpretation. The result is a local database that can be easily modified using specific commands, providing a flexible and efficient way to manage data.
 
 # Installation
-git clone https://github.com/benkivuva/AirBnB_clone.git; cd AirBnB_clone
+git clone https://github.com/MisheckGalx/AirBnB_clone.git; cd AirBnB_clone
 
 # Run
 ./console.py or python3 console.py
