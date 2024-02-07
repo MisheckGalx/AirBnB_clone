@@ -45,16 +45,16 @@ class HBNBCommand(cmd.Cmd):
 	def do_update(self, arg):
 		args = arg.split(' ',3)
 		if len(args) == 4:
-		clsname, objid, attrname, attrval = args
-            obj = models.storage.all().get(f"{clsname}.{objid}", None)
-            if obj:
-                setattr(obj, attrname, eval(attrval))
-                obj.updated_at = datetime.now()
-                models.storage.save()
-            else:
-                print('** no instance found **')
-        else:
-            print('** invalid number of arguments **')
+			clsname, objid, attrname, attrval = args
+		obj = models.storage.all().get(f"{clsname}.{objid}", None)
+		if obj:
+				setattr(obj, attrname, eval(attrval))
+				obj.updated_at = datetime.now()
+				models.storage.save()
+		else:
+				print('** no instance found **')
+				else:
+				print('** invalid number of arguments **')
 
     def do_quit(self, arg):
         return True
