@@ -41,11 +41,11 @@ class HBNBCommand(cmd.Cmd):
 	def do_all(self,arg):
 		objs = [str(v) for v in models.storage.all().values()] if not arg else \
                [str(v) for v in models.storage.all().values() if type(v).__name__ == arg]
-        print(objs)
+	print(objs)
 	def do_update(self, arg):
-        args = arg.split(' ', 3)
-        if len(args) == 4:
-            clsname, objid, attrname, attrval = args
+		args = arg.split(' ',3)
+		if len(args) == 4:
+		clsname, objid, attrname, attrval = args
             obj = models.storage.all().get(f"{clsname}.{objid}", None)
             if obj:
                 setattr(obj, attrname, eval(attrval))
