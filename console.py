@@ -3,16 +3,16 @@
 """The HBnB console"""
 
 import cmd
-from models.basemodel import Basemodel
-from models.user import User
-from models.datetime import Datetime
-from models.place import Place
-from models.city import City
-from models.state import State
-from models.amenity import Amenity
-from models.review import Review
+import sys
+
+from sys.user import User
+from sys.datetime import Datetime
+from sys.place import Place
+from sys.city import City
+from sys.state import State
+from sys.amenity import Amenity
+from sys.review import Review
 from shlex import shlex
-import models
 
 class HBNBCommand(cmd.Cmd):
 	prompt = '(hbnb)'
@@ -53,14 +53,12 @@ class HBNBCommand(cmd.Cmd):
 				models.storage.save()
 		else:
 				print('** no instance found **')
-				else:
-				print('** invalid number of arguments **')
 
-    def do_quit(self, arg):
-        return True
+	def do_quit(self, arg):
+		return True
 
-    def do_EOF(self, arg):
-        return True
+	def do_EOF(self, arg):
+		return True
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
