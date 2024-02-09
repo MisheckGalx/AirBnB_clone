@@ -39,7 +39,7 @@ class TestConsole(unittest.TestCase):
 
 	Returns:
 	An instance of the HBNBCommand class with mocked standard input and output.
-    """
+	"""
 	return HBNBCommand(stdin=self.mock_stdin, stdout=self.mock_stdout)
 
 	def get_last_write_output(self, num_lines=None):
