@@ -46,6 +46,5 @@ class TestConsole(unittest.TestCase):
 		if num_line is None:
 			return self.mock_stdout.write.call_args[0][0]
 		last_outputs = self.mock_stdout.write.call_args_list[-num_lines:]
-		concatenated_output = "".join(map(lambda call_args: call_args[0][0],
+		concatenated_output = "".join(map(lambda call_args: call_args[0][0], last_outputs))
 		return concatenated_output
-
