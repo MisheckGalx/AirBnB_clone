@@ -41,3 +41,11 @@ class TestConsole(unittest.TestCase):
 	An instance of the HBNBCommand class with mocked standard input and output.
     """
 	return HBNBCommand(stdin=self.mock_stdin, stdout=self.mock_stdout)
+
+	def get_last_write_output(self, num_lines=None):
+		if num_line is None:
+			return self.mock_stdout.write.call_args[0][0]
+		last_outputs = self.mock_stdout.write.call_args_list[-num_lines:]
+		concatenated_output = "".join(map(lambda call_args: call_args[0][0],
+		return concatenated_output
+
