@@ -11,7 +11,7 @@ class ModelJSONEncoder(json.JSONEncoder):
 
 class FileStorage:
     '''File Storage Class'''
-    __file_path = "models.json"
+    __file_path = "file.json"
     __objects = {}
     def all(self):
         """Returns all objects"""
