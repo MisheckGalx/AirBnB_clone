@@ -55,8 +55,8 @@ class HBNBCommand(cmd.Cmd):
     		#cmd = update <class name> <id> <attrib> <value>
     		try:
     			code = 'setattr(self, "temp_args",list(%s))'%cmd_update[-1]
-    			exec(code)
-    			
+    			exec(code)    			
+
     			if len(self.temp_args) > 2:
     				#no dict repr as argument
     				args = '%s %s %s %s'%(cmd_update[0], self.temp_args[0], self.temp_args[1], self.temp_args[2])
@@ -68,13 +68,12 @@ class HBNBCommand(cmd.Cmd):
     					val = self.temp_args[-1].get(key)
     					args = '%s %s %s %s'%(cmd_update[0], self.temp_args[0], key, val)
     					self.do_update(args)
-    				return
-    			
+    				return    			
     		except Exception as e:
     			pass
     		
-    	return super().default(line)
-    	
+    	return super().default(line)    	
+
     def do_quit(self, arg):
         '''Quit command to exit the program'''
         return True
@@ -144,13 +143,11 @@ class HBNBCommand(cmd.Cmd):
                     for key in all:
                         if key == f"{classname}.{id}":
                             obj = all.get(key)
-
                     if not obj:
                         print("** no instance found **")
                     else:
                         #object found, show it
                         print(str(obj))
-
             except ImportError:
                 print("** class doesn't exist **")
 
@@ -162,6 +159,7 @@ class HBNBCommand(cmd.Cmd):
 
         if len(args) > 0:
             classname = args[0]
+
         if len(args) > 1:
             id = args[1]
 
@@ -186,15 +184,12 @@ class HBNBCommand(cmd.Cmd):
                     for key in all:
                         if key == f"{classname}.{id}":
                             obj = all.get(key)
-
                     if not obj:
                         print("** no instance found **")
-
                     else:
                         #instance found, destroy it
                         storage.all().pop(f"{classname}.{id}")
                         storage.save()
-
             except ImportError:
                 print("** class doesn't exist **")
 
@@ -205,7 +200,7 @@ class HBNBCommand(cmd.Cmd):
 
         if len(args) > 0:
             classname = args[0]
-
+            
         if classname:
             try:
                 model_classes = get_all_model_classes()
@@ -227,8 +222,8 @@ class HBNBCommand(cmd.Cmd):
     def _do_count(self, line):
     	"""Prints number of model instances based on classname"""
     	classname = None
-    	args = line.split(" ")
-    	
+    	args = line.split(" ")    	
+
     	if len(args) > 0:
     		classname = args[0]
     	
@@ -249,7 +244,6 @@ class HBNBCommand(cmd.Cmd):
     	else:
     		print("** class name missing **")
 
-
     def do_update(self, line):
         """Updates an instance based on classname and id by adding or updating an attribute"""
         classname = None
@@ -260,6 +254,7 @@ class HBNBCommand(cmd.Cmd):
 
         if len(args) > 0:
             classname = args[0]
+            
         if len(args) > 1:
             id = args[1]
 
@@ -271,6 +266,7 @@ class HBNBCommand(cmd.Cmd):
 
         if not classname:
             print("** class name missing **")
+            
         else:
             try:
                 model_classes = get_all_model_classes()
@@ -280,6 +276,7 @@ class HBNBCommand(cmd.Cmd):
                         model_class = model_klass
                 if not model_class:
                     raise ImportError(" class doesn't exist")
+                    
                 # class does exist
                 if not id:
                     print("** instance id missing **")
@@ -293,7 +290,6 @@ class HBNBCommand(cmd.Cmd):
 
                     if not obj:
                         print("** no instance found **")
-
                     else:
                         #instance found, update/set an attribute
                         if attrib and value is not None:
@@ -305,15 +301,11 @@ class HBNBCommand(cmd.Cmd):
                         else:
                             if not attrib:
                                 print("** attribute name missing **")
-
                             elif not value:
                                 print("** value missing **")
 
             except ImportError:
-                print("** class doesn't exist **")
+                print("** class doesn't exist **")    
 
-
-
-    
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
