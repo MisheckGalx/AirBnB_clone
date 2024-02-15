@@ -2,6 +2,7 @@
 '''Class for State Model'''
 from .base_model import BaseModel
 
+
 class State(BaseModel):
     '''State Model'''
     state_id = ""

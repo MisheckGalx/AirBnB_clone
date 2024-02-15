@@ -17,7 +17,7 @@ class BaseModel:
     def classname(self):
         '''Returns the object classname'''
         return str(self.__class__).split(".")[-1].split("'")[0].strip()
-    
+
     @classmethod
     def to_classname(cls):
         '''Returns the object classname'''
@@ -38,8 +38,10 @@ class BaseModel:
         for key in _dict:
             if key not in ["created_at", "updated_at"]and not key == "__class__":
                 setattr(self, key, _dict.get(key))
+
             elif key == "__class__":
                 continue
+                
             else:
                 #convert string datetime to datetime object
                 d = _dict.get(key)
@@ -58,7 +60,7 @@ class BaseModel:
     def set_updated_at(self):
         '''Sets the datetime this object was updated'''
         self.updated_at = datetime.datetime.now()
-   
+
     def to_dict(self):
         '''Returns a dict containing all keys/values of __dict__ attrib'''
         d = self.__dict__
@@ -67,15 +69,16 @@ class BaseModel:
         for key in d.keys():
             if  (hasattr(d, key) and d.get(key)) != None and key not in [ "created_at", "updated_at"] and len(key.split("__loaded_from_json")) < 2:
                 new_dict[f"{key}"] = d.get(key)
+
             else:
                 if key in ["created_at", "updated_at"]:
                     if key == "updated_at":
                         new_dict["__class__"] = self.classname
                     new_dict[f"{key}"] = d.get(key).isoformat()
-                    
+             
         #adding classname in new_dict
         return new_dict
-    
+
     def __setattr__(self, __name: str, __value) -> None:
         '''Sets the new attribute'''
         return super().__setattr__(__name, __value)
@@ -83,6 +86,7 @@ class BaseModel:
     def save(self):
         '''Saves this model in a JSON file'''
         self.updated_at = datetime.datetime.now()
+
         for key in storage.all():
             if key == f"{self.classname}.{self.id}":
                 storage.all()[key] = self
@@ -91,7 +95,3 @@ class BaseModel:
     def __str__(self) -> str:
         '''Str representation'''
         return f"[{self.classname}] ({self.id}){self.__dict__}"
-
-
-
-

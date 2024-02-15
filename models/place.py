@@ -2,6 +2,7 @@
 '''Class for Place Model'''
 from .base_model import BaseModel
 
+
 class Place(BaseModel):
     '''Place Model'''
     city_id = ""
@@ -21,5 +22,5 @@ class Place(BaseModel):
         
         if kwargs.get("city") and kwargs.get("city_id"):
             kwargs.get("city").id = kwargs.get("city_id")
-
+            
         super().__init__(*args, **kwargs)

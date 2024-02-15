@@ -2,6 +2,7 @@
 '''Class for Review Model'''
 from .base_model import BaseModel
 
+
 class Review(BaseModel):
     '''Review Model'''
     place_id = ""
@@ -13,5 +14,5 @@ class Review(BaseModel):
         
         if kwargs.get("user") and kwargs.get("user_id"):
             kwargs.get("user").id = kwargs.get("user_id")
-
+            
         super().__init__(*args, **kwargs)
