@@ -6,3 +6,9 @@ body {
 	font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
 	color: #484848;
 }
+
+.container {
+    max-width: 1000px;
+    top: 30px;
+	margin: 30px auto;
+}
