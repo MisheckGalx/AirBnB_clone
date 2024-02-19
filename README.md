@@ -6,7 +6,7 @@ The first part of this project involves simulating an Airbnb application by crea
 
 # Installation
 ```
-git clone https://github.com/MisheckGalx/AirBnB_clone.git  
+git clone https://github.com/MisheckGalx/AirBnB_clone.git
 cd AirBnB_clone
 ```
 
@@ -26,29 +26,29 @@ sudo apt-get install python3
 ```
 
 ### Commands Explanation:
-**create** - Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id.  
-**Example**:  
+**create** - Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id.
+**Example**:
 ```
 $ create BaseModel
 ```
 
-**show** - Prints the string representation of an instance based on the class name and id.  
-**Example**:  
+**show** - Prints the string representation of an instance based on the class name and id.
+**Example**:
 ```
 $ show BaseModel 1234-1234-1234
 $ BaseModel.show("<id>")
 ```
-    
-**all** - Prints all string representation of all instances based or not on the class name.  
-**Example**:  
+
+**all** - Prints all string representation of all instances based or not on the class name.
+**Example**:
 ```
 $ all BaseModel
 $ all
 $ BaseModel.all()
 ```
-        
-**update** - Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file).  
-**Example**:  
+
+**update** - Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file).
+**Example**:
 ```
 $ update BaseModel 1234-1234-1234 email "airbnb@alxafrica.com"`
 $ BaseModel.update("<id>", "<attribute>", "<value>")`
@@ -56,5 +56,5 @@ $ BaseModel.update("<id>", {"field1":"value1", "field2":int_value})
 ```
 
 # AUTHORS
-**[Misheck Gogo](https://github.com/MisheckGalx)**  
+**[Misheck Gogo](https://github.com/MisheckGalx)**
 **[Brian Musakwa](https://github.com/digreatbrian)**
