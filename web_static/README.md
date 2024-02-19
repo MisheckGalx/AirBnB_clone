@@ -35,7 +35,7 @@ What is a selector
 How to compute CSS Specificity Value
 What are Box properties in CSS
 
-hbnb_step1.png
+![Alt Text](https://s3.amazonaws.com/intranet-projects-files/concepts/74/hbnb_step1.png)
 
 #  Requirements
 #  General
